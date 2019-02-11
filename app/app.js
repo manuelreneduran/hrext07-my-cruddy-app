@@ -6,6 +6,10 @@ interact with localstorage
  */
 
 $(document).ready(function(){
+  //messing with c3
+
+
+
   // this is where we jquery
   //var keyData = 'ourKey'; // going to need to make this dynamic?
 

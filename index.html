@@ -8,9 +8,12 @@
           integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
           crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="app/app.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.js
+"></script>
+ 
 
 
   <!--
@@ -25,9 +28,12 @@ container for the response-feedback (start with alert)
 -->
 </head>
 <body>
+    
 
 <div class="container-main">
   <header>My Cruddy App</header>
+  <div class="container-graph"></div>
+    <script src="app/app.js"></script>
   <div class="container-form">
     <input type="text" class="input-key" placeholder="enter key">
     <input type="text" class="input-value" placeholder="enter value">

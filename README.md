@@ -15,7 +15,7 @@ Create Read Update and Delete framework using JS
 - [ ] Feelings Are Hard -- Mood Tracker w/ CBT Workflow
     - [ ]  Track mood over time in a graph
         - [ ]  How to take in mood input? 1-10 scale?  Percentages?
-        - [ ]  Implement graph system -- D2?
+        - [ ]  Implement graph system -- c3?
             - [ ] What kind of graph?
             - [ ] Graph tabs to switch between different graphs
     - [ ]  CBT Workflow questionnaire to process feelings and thoughts
