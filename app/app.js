@@ -5,6 +5,20 @@ interact with localstorage
 
  */
 
+var makeKey = function() {
+
+  var counter = 0;
+
+  return function() {
+    let date = new Date();
+    return date.toDateString() + " " + counter;
+    counter++;
+  }
+  
+}
+
+var makeK = makeKey();
+
 $(document).ready(function(){
   //messing with c3
 
@@ -12,6 +26,22 @@ $(document).ready(function(){
 
   // this is where we jquery
   //var keyData = 'ourKey'; // going to need to make this dynamic?
+
+  //Dynamic key generator function
+
+  /*
+  INPUT: nothing
+  OUTPUT: a formatted time and date
+
+  var makeKey = function()
+    //create new date object
+    //format time and date
+    //return formatted t and d
+  */
+
+
+
+
 
 
   $('.btn-add').on('click', function(e){
