@@ -5,21 +5,25 @@ interact with localstorage
 
  */
 
-var makeKey = function() {
-
-  var counter = 0;
-
-  return function() {
-    let date = new Date();
-    return date.toDateString() + " " + counter;
-    counter++;
-  }
-  
+var makeKey = function () {
+ 
+  let date = new Date();
+  let time = date.getTime()
+  return date.toDateString() + " " + time;
 }
 
-var makeK = makeKey();
+//limits the range of value from 1-10
 
-$(document).ready(function(){
+var limitValRange = function (num) {
+  if (num > 10) {
+    return 10;
+  } else if (num < 1) {
+    return 1;
+  }
+  return num;
+}
+
+$(document).ready(function () {
   //messing with c3
 
 
@@ -44,37 +48,36 @@ $(document).ready(function(){
 
 
 
-  $('.btn-add').on('click', function(e){
+  $('.btn-add').on('click', function (e) {
     console.log(e);
-    var keyData = $('.input-key').val();
+    var keyData = makeKey();
     var valueData = $('.input-value').val();
     // write to db
-    localStorage.setItem(keyData, valueData);
+    localStorage.setItem(keyData, limitValRange(valueData));
     // read from db
-    var displayText = keyData + ' | ' + localStorage.getItem(keyData);
+    
     // this only displays the last one? might want to switch to html
     // and append a div
     // <div class="display-data-item" data-keyValue="keyData">valueData</div>
     // if you use backticks ` you can use ${templateLiterals}
     // TODO make this vars make sense across the app
-    $('.container-data').html('<div class="display-data-item" data-keyValue="'+ keyData +'">'+valueData+'</div>');
     $('.input-key').val('');
     $('.input-value').val('');
   });
 
 
   // update db
-    // need to expand when  more than 1 item is added
+  // need to expand when  more than 1 item is added
 
   // delete item
-  $('.container-data').on('click', '.display-data-item', function(e){
+  $('.container-data').on('click', '.display-data-item', function (e) {
     console.log(e.currentTarget.dataset.keyvalue);
     var keyData = e.currentTarget.dataset.keyvalue;
     localStorage.removeItem(keyData);
     $('.container-data').text('');
   });
   // delete all?
-  $('.btn-clear').click(function(){
+  $('.btn-clear').click(function () {
     localStorage.clear();
     $('.container-data').text('');
   });
