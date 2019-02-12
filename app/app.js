@@ -27,7 +27,7 @@ var limitValRange = function (num) {
 
 //generates dynamic date-range for x-axis -- today's date + 1 week;
 
-var createXRange = function() {
+var renderRangeObj = function() {
   let date = new Date();
   let today = date.getTime();
   let month = date.getMonth() + 1;
@@ -52,21 +52,36 @@ var createXRange = function() {
   return returnDates;
 }
 
-console.log(createXRange());
+//creates the actual array that c3 accepts
+var createXRange = function(range) {
+  var returnDates = [];
+  for (var prop in range) {
+    returnDates.push(parseInt(prop));
+  }
 
+  return returnDates;
+}
+
+var xRange = createXRange(renderRangeObj())
+console.log(xRange[0])
 //C3 stuff
 
 var graph = c3.generate({
   bindto: '.container-graph',
   data: {
     columns: [
-      ['data1', 30, 200, 100, 400, 150, 250],
-    ]
+     ["dates", 5, 4, 6, 7, 3, 6, 5]
+    ],
   },
   axis: {
     y: {
+      padding: {top: 3},
       max: 10,
       min: 1,
+    },
+    x: {
+      max: 10,
+      min: 1
     }
   }
 });
