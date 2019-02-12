@@ -39,12 +39,12 @@ var renderRangeArr = function() {
   let returnDates = ['' + year + "-" + month + "-" + day + ''];
   var i = 1;
   while (i < 8) {
-    let newDate = new Date(date.getTime() + (oneDay));
+    let newDate = new Date(date.getTime() - (oneDay));
     let tomorrowDay = newDate.getDate();
     let tomorrowMonth = newDate.getMonth() + 1;
     let tomorrowYear = newDate.getFullYear();
 
-    returnDates.push(tomorrowYear + '-' + tomorrowMonth + '-' + tomorrowDay + '');
+    returnDates.unshift(tomorrowYear + '-' + tomorrowMonth + '-' + tomorrowDay + '');
     i++
     oneDay += 86400000;
   }
@@ -58,7 +58,7 @@ var renderRangeArr = function() {
 
 //C3 stuff
 var dates = renderRangeArr();
-var sample = ['sample1', 1, 2, 3, 4, 5, 6, 7, 8];
+var sample = ['Mood', 8, 7, 7, 6, 7, 8, 6];
 console.log(dates)
 var graph = c3.generate({
   bindto: '.container-graph',
@@ -78,6 +78,8 @@ var graph = c3.generate({
     x: {
       type: 'timeseries',
       tick: {
+        rotate: 75,
+        multiline: false,
         format: '%Y-%m-%d'
       }
     }
