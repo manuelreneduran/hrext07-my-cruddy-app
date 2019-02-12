@@ -1,3 +1,11 @@
 .container-main {
     border: solid;
 }
+
+.list-distortions {
+    list-style: none;
+}
+
+.list-distortions li {
+    border: solid blue;
+}
