@@ -14,77 +14,11 @@ var makeKey = function () {
   return date.toDateString() + " " + time;
 }
 
-//limits the range of value from 1-10
-
-var limitValRange = function (num) {
-  if (num > 10) {
-    return 10;
-  } else if (num < 1) {
-    return 1;
-  }
-  return num;
-}
-
-//generates dynamic date-range for x-axis tick values -- today's date + 1 week;
-
-var renderRangeArr = function() {
-  let date = new Date();
-  let today = date.getTime();
-  let month = date.getMonth() + 1;
-  let day = date.getDate(today) ;
-  let year = date.getFullYear();
-
-  let oneDay = 86400000;
-
-  let returnDates = ['' + year + "-" + month + "-" + day + ''];
-  var i = 1;
-  while (i < 8) {
-    let newDate = new Date(date.getTime() - (oneDay));
-    let tomorrowDay = newDate.getDate();
-    let tomorrowMonth = newDate.getMonth() + 1;
-    let tomorrowYear = newDate.getFullYear();
-
-    returnDates.unshift(tomorrowYear + '-' + tomorrowMonth + '-' + tomorrowDay + '');
-    i++
-    oneDay += 86400000;
-  }
-
-  //['2013-01-05', '2013-01-10']
-  returnDates.unshift("Dates");
-  return returnDates;
-}
 
 
 
 //C3 stuff
-var dates = renderRangeArr();
-var sample = ['Mood', 8, 7, 7, 6, 7, 8, 6];
-console.log(dates)
-var graph = c3.generate({
-  bindto: '.container-graph',
-  data: {
-    x: 'Dates',
-    columns: [
-     dates,
-     sample
-    ],
-  },
-  axis: {
-    y: {
-      padding: {top: 3},
-      max: 10,
-      min: 1,
-    },
-    x: {
-      type: 'timeseries',
-      tick: {
-        rotate: 75,
-        multiline: false,
-        format: '%Y-%m-%d'
-      }
-    }
-  }
-});
+
 
 $(document).ready(function () {
   //messing with c3
