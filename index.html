@@ -48,7 +48,7 @@ div class="container-form">
       <div class="container-text">
         <input type="text" class="input-text">
       </div>
-      <button class ="btn-back">Back</button>
+      <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
     </div>
     <!--Initial Feelings Container-->
@@ -59,15 +59,37 @@ div class="container-form">
       </div>
       <div class="container-feelings">
         <h5>How did you feel?</h5>
-        <div class="container-emotion">  
+        <div class="container-emotion">
           <select name="emotions">
             <option value="Angry">Angry</option>
             <option value="Select" selected>Select</option>
           </select>
-            <input type="range" class="slider-emotion" name="slider-emotion"
-                   min="0" max="100" step="10" value="0">
-            <span>number</span> 
+          <input type="range" class="slider-emotion" name="slider-emotion" min="0" max="100" step="10" value="0">
+          <span>0%</span>
         </div>
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
+      </div>
+      <div class="container-main">
+        <h3>Main Thought</h3>
+        <div class="container-summary">
+         
+          Situation: getSummarizeText
+        </div>
+        <h5>What thought or concern was going through your mind?</h5>
+        <input type="text" class="input-text">
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
+      </div>
+      <div class="container-main">
+        <h3>Thought Distortions</h3>
+        <div class="container-summary">     
+            Situation: getSummarizeText
+        </div>
+        <div class="container-distortions">
+          <h5>Which distortions can you identify in your thoughts?</h5>
+        </div>
+        
       </div>
     </div>
 
@@ -79,6 +101,7 @@ div class="container-form">
 
     <!--Current Feelings Container-->
 
-  </div> 
-</body> 
+  </div>
+</body>
+
 </html>

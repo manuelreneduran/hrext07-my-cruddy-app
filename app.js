@@ -1,9 +1,9 @@
 
 $(document).ready(function () {
   
-//changes displayedslider value when slider is moved
+//changes displayed slider value when slider is moved
 $('.slider-emotion').on("change mousemove", function() {
-  $(this).next().html($(this).val());
+  $(this).next().html($(this).val() + "%");
 });
 
 });
