@@ -1,13 +1,13 @@
 
 $(document).ready(function () {
-
-  // this is where we jquery
-  //var keyData = 'ourKey'; // going to need to make this dynamic?
-
-
- 
+  
+//changes displayedslider value when slider is moved
+$('.slider-emotion').on("change mousemove", function() {
+  $(this).next().html($(this).val());
+});
 
 });
+
 
 
 
