@@ -5,9 +5,11 @@ interact with localstorage
 
  */
 
+ //generates dynamic key so no value is ever overwritten
+
+
 var makeKey = function () {
- 
-  let date = new Date();
+  var date = new Date();
   let time = date.getTime()
   return date.toDateString() + " " + time;
 }
@@ -23,6 +25,52 @@ var limitValRange = function (num) {
   return num;
 }
 
+//generates dynamic date-range for x-axis -- today's date + 1 week;
+
+var createXRange = function() {
+  let date = new Date();
+  let today = date.getTime();
+  let month = date.getMonth() + 1;
+  let day = date.getDate(today) ;
+
+  let oneDay = 86400000;
+
+  let returnDates = {};
+  let i = 0;
+
+  while(i < 7) {
+  let newDate = new Date(date.getTime() + oneDay);
+  let tomorrowDay = newDate.getDate();
+  let tomorrowMonth = newDate.getMonth() + 1;
+
+  returnDates[tomorrowDay] = tomorrowMonth;
+  
+  oneDay += 86400000;
+  i++;
+  }
+
+  return returnDates;
+}
+
+console.log(createXRange());
+
+//C3 stuff
+
+var graph = c3.generate({
+  bindto: '.container-graph',
+  data: {
+    columns: [
+      ['data1', 30, 200, 100, 400, 150, 250],
+    ]
+  },
+  axis: {
+    y: {
+      max: 10,
+      min: 1,
+    }
+  }
+});
+
 $(document).ready(function () {
   //messing with c3
 
@@ -30,22 +78,6 @@ $(document).ready(function () {
 
   // this is where we jquery
   //var keyData = 'ourKey'; // going to need to make this dynamic?
-
-  //Dynamic key generator function
-
-  /*
-  INPUT: nothing
-  OUTPUT: a formatted time and date
-
-  var makeKey = function()
-    //create new date object
-    //format time and date
-    //return formatted t and d
-  */
-
-
-
-
 
 
   $('.btn-add').on('click', function (e) {
@@ -55,7 +87,7 @@ $(document).ready(function () {
     // write to db
     localStorage.setItem(keyData, limitValRange(valueData));
     // read from db
-    
+
     // this only displays the last one? might want to switch to html
     // and append a div
     // <div class="display-data-item" data-keyValue="keyData">valueData</div>
