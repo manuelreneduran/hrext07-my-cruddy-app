@@ -25,52 +25,48 @@ var limitValRange = function (num) {
   return num;
 }
 
-//generates dynamic date-range for x-axis -- today's date + 1 week;
+//generates dynamic date-range for x-axis tick values -- today's date + 1 week;
 
-var renderRangeObj = function() {
+var renderRangeArr = function() {
   let date = new Date();
   let today = date.getTime();
   let month = date.getMonth() + 1;
   let day = date.getDate(today) ;
+  let year = date.getFullYear();
 
   let oneDay = 86400000;
 
-  let returnDates = {};
-  let i = 0;
+  let returnDates = ['' + year + "-" + month + "-" + day + ''];
+  var i = 1;
+  while (i < 8) {
+    let newDate = new Date(date.getTime() + (oneDay));
+    let tomorrowDay = newDate.getDate();
+    let tomorrowMonth = newDate.getMonth() + 1;
+    let tomorrowYear = newDate.getFullYear();
 
-  while(i < 7) {
-  let newDate = new Date(date.getTime() + oneDay);
-  let tomorrowDay = newDate.getDate();
-  let tomorrowMonth = newDate.getMonth() + 1;
-
-  returnDates[tomorrowDay] = tomorrowMonth;
-  
-  oneDay += 86400000;
-  i++;
+    returnDates.push(tomorrowYear + '-' + tomorrowMonth + '-' + tomorrowDay + '');
+    i++
+    oneDay += 86400000;
   }
 
+  //['2013-01-05', '2013-01-10']
+  returnDates.unshift("Dates");
   return returnDates;
 }
 
-//creates the actual array that c3 accepts
-var createXRange = function(range) {
-  var returnDates = [];
-  for (var prop in range) {
-    returnDates.push(parseInt(prop));
-  }
 
-  return returnDates;
-}
 
-var xRange = createXRange(renderRangeObj())
-console.log(xRange[0])
 //C3 stuff
-
+var dates = renderRangeArr();
+var sample = ['sample1', 1, 2, 3, 4, 5, 6, 7, 8];
+console.log(dates)
 var graph = c3.generate({
   bindto: '.container-graph',
   data: {
+    x: 'Dates',
     columns: [
-     ["dates", 5, 4, 6, 7, 3, 6, 5]
+     dates,
+     sample
     ],
   },
   axis: {
@@ -80,8 +76,10 @@ var graph = c3.generate({
       min: 1,
     },
     x: {
-      max: 10,
-      min: 1
+      type: 'timeseries',
+      tick: {
+        format: '%Y-%m-%d'
+      }
     }
   }
 });
