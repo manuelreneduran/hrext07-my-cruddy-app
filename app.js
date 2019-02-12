@@ -1,35 +1,19 @@
-/*
-Init app
-interact with DOM
-interact with localstorage
-
- */
-
- //generates dynamic key so no value is ever overwritten
-
-
-var makeKey = function () {
-  var date = new Date();
-  let time = date.getTime()
-  return date.toDateString() + " " + time;
-}
-
-
-
-
-//C3 stuff
-
 
 $(document).ready(function () {
-  //messing with c3
-
-
 
   // this is where we jquery
   //var keyData = 'ourKey'; // going to need to make this dynamic?
 
 
-  $('.btn-add').on('click', function (e) {
+ 
+
+});
+
+
+
+//getter setter stuff
+/*
+ $('.btn-add').on('click', function (e) {
     console.log(e);
     var keyData = makeKey();
     var valueData = $('.input-value').val();
@@ -63,4 +47,9 @@ $(document).ready(function () {
     $('.container-data').text('');
   });
 
-});
+  var makeKey = function () {
+  var date = new Date();
+  let time = date.getTime()
+  return date.toDateString() + " " + time;
+}
+  */
