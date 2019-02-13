@@ -1,11 +1,37 @@
 
 $(document).ready(function () {
-  
-//changes displayed slider value when slider is moved
-$('.slider-emotion').on("change mousemove", function() {
-  $(this).next().html($(this).val() + "%");
-});
+  //hides all workflow divs
+  let divs = document.getElementsByClassName("container-main");
+  console.log(divs);
+  $(divs).hide()
 
+//changes displayed slider value when slider is moved
+  $('.slider-emotion').on("change mousemove", function() {
+    $(this).next().html($(this).val() + "%");
+  });
+
+//initializes workflow
+  $(".btn-start").on("click", function() {
+    $(".summarize").show();
+  })
+
+//controls back and next buttons to hide and show divs
+  $(".btn-next").on("click", function(e) {
+    let parent = e.currentTarget.parentElement;
+    let next = $(parent).next();
+    $(next).show();
+    $(parent).hide();
+  })
+
+  $(".btn-back").on("click", function(e) {
+    let parent = e.currentTarget.parentElement;
+    let prev = $(parent).prev();
+    $(parent).hide();
+    $(prev).show();
+  })
+
+
+$()
 });
 
 
