@@ -46,9 +46,9 @@ div class="container-form">
     <!--Summarize Container-->
 
     <div class="container-main summarize">
-      <h3>Summarize a situation that bothered you</h3>
-      <div class="container-tex t">
-        <input type="text" class="input-text">
+      <h3 class="key">Summarize a situation that bothered you</h3>
+      <div class="container-text">
+        <input type="text" class="input input-text-summarize">
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
@@ -57,9 +57,9 @@ div class="container-form">
     <!--Initial Feelings Container-->
 
     <div class="container-main initial-feelings">
-      <h3>Initial Feelings</h3>
+      <h3 class="key">Initial Feelings</h3>
       <div class="container-summary">
-        Situation: getSummarizeText
+        Summary: summarizeText
       </div>
       <div class="container-feelings">
         <h5>How did you feel?</h5>
@@ -68,7 +68,7 @@ div class="container-form">
             <option value="Angry">Angry</option>
             <option value="Select" selected>Select</option>
           </select>
-          <input type="range" class="slider-emotion" name="slider-emotion" min="0" max="100" step="10" value="0">
+          <input type="range" class="input slider-emotion" name="slider-emotion" min="0" max="100" step="10" value="0">
           <span>0%</span>
         </div>
 
@@ -81,14 +81,14 @@ div class="container-form">
     <!--Main Thought Container-->
 
     <div class="container-main main-thought">
-      <h3>Main Thought</h3>
+      <h3 class="key">Main Thought</h3>
       <div class="container-summary">
 
         Situation: getSummarizeText
       </div>
       <h5>What thought or concern was going through your mind?</h5>
       <div class="container-input">
-          <input type="text" class="input-text">
+          <input type="text" class="input input-text">
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
@@ -98,7 +98,7 @@ div class="container-form">
     <!--Thought Distortions Container-->
 
     <div class="container-main thought-distortions">
-      <h3>Thought Distortions</h3>
+      <h3 class="key">Thought Distortions</h3>
       <div class="container-summary">
         Situation: getSummarizeText
       </div>
@@ -123,14 +123,14 @@ div class="container-form">
     <!--Modified Thoughts Container-->
 
     <div class="container-main modified-thoughts">
-      <h3>Modified Thoughts</h3>
+      <h3 class="key">Modified Thoughts</h3>
       <div class="container-summary">
           Situation: getSummarizeText
       </div>
 
       <h5>What is another way to think about this situation without distortions?</h5>
       <div class="container-input">
-          <input type="text" class="input-text">
+          <input type="text" class="input input-text">
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
@@ -139,6 +139,7 @@ div class="container-form">
 
     <!--Current Feelings Container-->
     <div class="container-main current-feelings">
+      <h3 class="key">Current Feelings</h3>
         <div class="container-summary">
             Situation: getSummarizeText
         </div>

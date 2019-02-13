@@ -19,6 +19,11 @@ $(document).ready(function () {
   $(".btn-next").on("click", function(e) {
     let parent = e.currentTarget.parentElement;
     let next = $(parent).next();
+
+    let val = getInputVal(parent);
+    let key = getInputKey(parent);
+    localStorage.setItem(key, val);
+
     $(next).show();
     $(parent).hide();
   })
@@ -29,6 +34,22 @@ $(document).ready(function () {
     $(parent).hide();
     $(prev).show();
   })
+
+//gets input value from parent div
+  let getInputVal = function(ele) {
+    let parentInput = $(ele).find(".input");
+    if (parentInput.length !== 0) {
+      return parentInput[0].value;
+    }
+  }
+
+//gets input key name
+  let getInputKey = function(ele) {
+    let key = $(ele).find(".key");
+    return key[0].textContent;
+  }
+
+
 
 
 $()
