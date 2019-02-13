@@ -23,6 +23,7 @@ $(document).ready(function () {
     let val = getInputVal(parent);
     let key = getInputKey(parent);
     localStorage.setItem(key, val);
+    updateNextSummary(next, key);
 
     $(next).show();
     $(parent).hide();
@@ -49,10 +50,17 @@ $(document).ready(function () {
     return key[0].textContent;
   }
 
+//gets local storage value
+  let updateNextSummary = function(nextEle, pKey) {
+    let val = localStorage.getItem(pKey);
+    let summaryC = $(nextEle).find(".container-summary");
+    $(summaryC).append(pKey + ": " + val);
+    console.log(val);
+  }
 
+  //TODO -- fix update next summary -- summary boxes should containe all info from previous boxes and next should
+  //overwrite if it already exists, not add to it.
 
-
-$()
 });
 
 
