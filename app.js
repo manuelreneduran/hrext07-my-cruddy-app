@@ -61,9 +61,16 @@ $(document).ready(function () {
   let updateNextSummary = function() {
     let returnDiv = [];
     let summary = ["Summary", "Initial Feelings", "Main Thought", "Thought Distortions", "Modified Thoughts"];
-
+    let val = function(ele) {
+      return $(ele).val();
+    }
     for (var i = 0; i <= keyCounter; i++) {
-      returnDiv.push("<div><span>" + summary[i] + ": " + localStorage.getItem(i) + "</span></div></br>")
+      if (summary[i] === "Initial Feelings") {
+        returnDiv.push("<span><u>Initial Feelings:</u></span><div><span>" + val(".emotion-first") + ": " + val(".slider-first") + "%</span></div></br>")
+      } else {
+        returnDiv.push("<div><span><u>" + summary[i] + ":</u></br>" + localStorage.getItem(i) + "</span></div></br>")
+      }
+
     }
     return returnDiv;
   }

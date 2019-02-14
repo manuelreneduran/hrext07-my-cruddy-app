@@ -56,28 +56,16 @@ div class="container-form">
     <!--Initial Feelings Container-->
 
     <div class="container-main initial-feelings">
-      <h3 class="key">Initial Feelings</h3>
+      <h3 class="key">Initial Feeling</h3>
       <div class="container-summary">
         <span></span>
       </div>
       <div class="container-feelings">
         <h5>How did you feel?</h5>
-          <input type="text" class="emotion-first">
-          <input type="range" class="input slider-emotion emotion-first" name="slider-emotion" min="0" max="100" step="10" value="0">
-          <span>0%</span>
-      </br>
-          <input type="text" class="emotion-second">
-          <input type="range" class="input slider-emotion emotion-second" name="slider-emotion" min="0" max="100" step="10" value="0">
-          <span>0%</span>
-        </br>
-          <input type="text" class="emotion-third">
-          <input type="range" class="input slider-emotion emotion-third" name="slider-emotion" min="0" max="100" step="10" value="0">
-          <span>0%</span>
-        </br>
-          <input type="text" class="emotion-fourth">
-          <input type="range" class="input slider-emotion emotion-fourth" name="slider-emotion" min="0" max="100" step="10" value="0">
-          <span>0%</span>
-        </br>
+        <input type="text" class="emotion-first">
+        <input type="range" class="input slider-emotion slider-first" name="slider-emotion" min="0" max="100" step="10"
+          value="0">
+        <span>0%</span>
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
@@ -107,17 +95,64 @@ div class="container-form">
       </div>
       <div class="container-distortions">
         <h5>Which distortions can you identify in your thoughts?</h5>
-        <ul class="list-distortions" list-style="none">
-          <li class="distortion">
-            <h4>Emotional Reasoning</h4>
-            <p>Believing something is true because it "feels" true.</p>
-          </li>
-          <li class="distortion">
-            <h4>Fortune Telling</h4>
-            <p>Making negative predictions about the future, such as how people will behave or how events will play
-              out.</p>
-          </li>
-        </ul>
+
+        <input type="checkbox" name="reasoning">
+        <label for="reasoning">EMOTIONAL REASONING: Believing something is true because it "feels" true.</label>
+        </br>
+
+        <input type="checkbox" name="fortune">
+        <label for="fortune">FORTUNE TELLING: Making negative predictions about the future, such as how people will
+          behave or how events will play out</label>
+        </br>
+
+
+        <input type="checkbox" name="allornothing">
+        <label for="allornothing">ALL OR NOTHING THINKING: Seeing people or events in absolute terms without
+          recognizing middle ground.</label>
+        </br>
+
+        <input type="checkbox" name="blaming">
+        <label for="blaming">BLAMING: Blaming yourself or others too much. Focusing on who it to blame for problems
+          rather than what you can do about them.</label>
+        </br>
+
+        <input type="checkbox" name="catastrophizing">
+        <label for="catastrophizing">CATASTROPHIZING: Blowing things out of proportion, telling yourself that you won't
+          be able to handle something.</label>
+        </br>
+        <input type="checkbox" name="downplaying">
+        <label for="downplaying">DOWNPLAYING POSITIVES: Minimizing or dismissing positive qualities, achievements or
+          behaviors by telling yourself that they are unimportant or don't count.</label>
+        </br>
+        <input type="checkbox" name="Intolerance">
+        <label for="Intolerance">INTOLERANCE OF UNCERTAINTY: Struggling to accept or tolerate things being uncertain or
+          unknown.</label>
+        </br>
+        <input type="checkbox" name="labeling">
+        <label for="labeling">LABELING: Describing yourself or others using global, negative labels.</label>
+        </br>
+        <input type="checkbox" name="mind">
+        <label for="mind">MIND READING: Jumping to conclusions about another person's thoughts, feelings or intentions
+          without checking them out.</label>
+        </br>
+        <input type="checkbox" name="negative">
+        <label for="negative">NEGATIVE FILTERING: Focusing only on the negatives and ignoring the positives in a
+          situation.</label>
+        </br>
+        <input type="checkbox" name="notAccepting">
+        <label for="notAccepting">NOT ACCEPTING: Dwelling on an unpleasant situation or wishing things were different
+          instead of accepting what has happened and finding ways to move forward.</label>
+        </br>
+        <input type="checkbox" name="personalizing">
+        <label for="personalizing">PERSONALIZING: Telling yourself that events relate to you when they may not.</label>
+        </br>
+        <input type="checkbox" name="should">
+        <label for="should">'SHOULD' AND 'MUST' THINKING: Focusing on how things or people "should" or "must" be.
+          Treating your own standards or preferences as rules that everyone must live by.</label>
+        </br>
+        <input type="checkbox" name="not">
+        <label for="not">NOT A DISTORTION: None of the thought distortions apply but I could think about this situation
+          in a more helpful way.</label>
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
