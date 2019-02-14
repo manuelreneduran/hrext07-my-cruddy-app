@@ -62,48 +62,22 @@ div class="container-form">
       </div>
       <div class="container-feelings">
         <h5>How did you feel?</h5>
-        <div class="container-emotion">
-          <select name="emotions">
-              <option value="Select" selected>Select</option>
-            <option value="Angry">Angry</option>
-            <option value="Annoyed">Annoyed</option>
-            <option value="Anxious">Anxious</option>
-            <option value="Ashamed">Ashamed</option>
-            <option value="Bored">Bored</option>
-            <option value="Confused">Confused</option>
-            <option value="Dejected">Dejected</option>
-            <option value="Depressed">Depressed</option>
-            <option value="Defensive">Defensive</option>
-            <option value="Demoralized">Demoralized</option>
-            <option value="Dissapointed">Disappointed</option>
-            <option value="Disgusted">Disgusted</option>
-            <option value="Embarrased">Embarrased</option>
-            <option value="Enraged">Enraged</option>
-            <option value="Envious">Envious</option>
-            <option value="Frightened">Frightened</option>
-            <option value="Frustrated">Frustrated</option>
-            <option value="Guilty">Guilty</option>
-            <option value="Humiliated">Humiliated</option>
-            <option value="Hurt">Hurt</option>
-            <option value="Insecure">Insecure</option>
-            <option value="Irritated">Irritated</option>
-            <option value="Jealous">Jealous</option>
-            <option value="Lonely">Lonely</option>
-            <option value="Mad">Mad</option>
-            <option value="Nervous">Nervous</option>
-            <option value="Panicky">Panicky</option>
-            <option value="Resentful">Resentful</option>
-            <option value="Sad">Sad</option>
-            <option value="Scared">Scared</option>
-            <option value="Self-conscious">Self-conscious</option>
-            <option value="Stressed">Stressed</option>
-            <option value="Worried">Worried</option>
-            
-          </select>
-          <input type="range" class="input slider-emotion" name="slider-emotion" min="0" max="100" step="10" value="0">
+          <input type="text" class="emotion-first">
+          <input type="range" class="input slider-emotion emotion-first" name="slider-emotion" min="0" max="100" step="10" value="0">
           <span>0%</span>
-        </div>
-
+      </br>
+          <input type="text" class="emotion-second">
+          <input type="range" class="input slider-emotion emotion-second" name="slider-emotion" min="0" max="100" step="10" value="0">
+          <span>0%</span>
+        </br>
+          <input type="text" class="emotion-third">
+          <input type="range" class="input slider-emotion emotion-third" name="slider-emotion" min="0" max="100" step="10" value="0">
+          <span>0%</span>
+        </br>
+          <input type="text" class="emotion-fourth">
+          <input type="range" class="input slider-emotion emotion-fourth" name="slider-emotion" min="0" max="100" step="10" value="0">
+          <span>0%</span>
+        </br>
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
@@ -118,7 +92,7 @@ div class="container-form">
       </div>
       <h5>What thought or concern was going through your mind?</h5>
       <div class="container-input">
-          <input type="text" class="input input-text">
+        <input type="text" class="input input-text">
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
@@ -158,26 +132,26 @@ div class="container-form">
 
       <h5>What is another way to think about this situation without distortions?</h5>
       <div class="container-input">
-          <input type="text" class="input input-text">
+        <input type="text" class="input input-text">
       </div>
       <button class="btn-back">Back</button>
       <button class="btn-next">Next</button>
-      
+
     </div>
 
     <!--Current Feelings Container-->
     <div class="container-main current-feelings">
       <h3 class="key">Current Feelings</h3>
-        <div class="container-summary">
-        </div>
-        <div class="container-emotion">
-          <h5>You said you felt:</h5>
+      <div class="container-summary">
+      </div>
+      <div class="container-previous-emotions">
+        <h5>You said you felt:</h5>
 
-        </div>
-        <button class="btn-back">Back</button>
-        <button class="btn-finish">Finish</button>
+      </div>
+      <button class="btn-back">Back</button>
+      <button class="btn-finish">Finish</button>
     </div>
-    
+
 
   </div>
 </body>

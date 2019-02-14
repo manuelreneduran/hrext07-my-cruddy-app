@@ -5,9 +5,15 @@ $(document).ready(function () {
   $(divs).hide()
 
 //changes displayed slider value when slider is moved
-  $('.slider-emotion').on("change mousemove", function() {
+  $(document).delegate('.slider-emotion', "change mousemove", function() {
     $(this).next().html($(this).val() + "%");
   });
+
+  var containerEmotion = $("#clone").clone(); 
+
+  
+  //adds second emotion box when an emotion is selected
+
 
 //initializes workflow
   $(".btn-start").on("click", function() {
