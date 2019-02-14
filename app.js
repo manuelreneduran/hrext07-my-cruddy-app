@@ -8,7 +8,9 @@ $(document).ready(function () {
     $(this).next().html($(this).val() + "%");
   });
 
-  var containerEmotion = $("#clone").clone();
+
+  //controls div shuffling system and updateNextSummary()
+  var keyCounter = 0;
 
 
   //adds second emotion box when an emotion is selected
@@ -18,10 +20,9 @@ $(document).ready(function () {
   $(".btn-start").on("click", function () {
     $(divs).hide();
     $(".summarize").show();
+    keyCounter = 0;
   })
 
-  //controls div shuffling system and updateNextSummary()
-  var keyCounter = 0;
 
   //controls back and next buttons to hide and show divs as well as update next summary
   $(".btn-next").on("click", function (e) {
@@ -47,6 +48,10 @@ $(document).ready(function () {
     keyCounter--;
   })
 
+  $(".btn-finish").on("click", function(e) {
+    window.alert("You've seen a difference of " + ($(".slider-second").val() - localStorage.getItem(1) + "%"))
+  })
+
   //gets input value from parent div
   let getInputVal = function (ele) {
     let parentInput = $(ele).find(".input");
@@ -56,7 +61,7 @@ $(document).ready(function () {
   }
 
 
-  //gets local storage value
+  //updates summary
   let updateNextSummary = function () {
     let returnDiv = [];
     let summary = ["Summary", "Initial Feelings", "Main Thought", "Thought Distortions", "Modified Thoughts", "Current Feelings"];
@@ -71,9 +76,9 @@ $(document).ready(function () {
         $('input:checkbox:checked').each(function () {
           thoughts += $(this).next("label").text() + "</br>";
         }).get();
-        returnDiv.push("<span><u>Thought Distortions</u></span><div><span>" + thoughts + "</br>");
+        returnDiv.push("<span><u>Thought Distortions:</u></span><div><span>" + thoughts + "</br>");
       } else if (summary[i] === "Modified Thoughts") {
-        $(".container-previous-emotions").append("<div><span>" + val(".emotion-first") + ": " + val(".slider-first") + "%</span></div></br><span>How do you feel now?</span></br><input type='range' class='input slider-emotion slider-first' name='slider-emotion' min='0' max='100' step='10' value='0'><span>0%</span>")
+        returnDiv.push("<div><span><u>" + summary[i] + ":</u></br>" + localStorage.getItem(i) + "</span></div></br><div><span><h5>You said you felt:</h5>" + val(".emotion-first") + ": " + val(".slider-first") + "%</span></div></br><span>How do you feel now?</span></br><input type='range' class='input slider-emotion slider-second' name='slider-emotion' min='0' max='100' step='10' value='0'><span>0%</span>")
       } else {
         returnDiv.push("<div><span><u>" + summary[i] + ":</u></br>" + localStorage.getItem(i) + "</span></div></br>")
       }
