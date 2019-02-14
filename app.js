@@ -11,7 +11,8 @@ $(document).ready(function () {
 
 //initializes workflow
   $(".btn-start").on("click", function() {
-    $(".summarize").show();
+      $(divs).hide();
+      $(".summarize").show();
   })
 
   //controls div shuffling system and updateNextSummary()
