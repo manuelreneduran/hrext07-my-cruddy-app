@@ -2,7 +2,6 @@
 $(document).ready(function () {
   //hides all workflow divs
   let divs = document.getElementsByClassName("container-main");
-  console.log(divs);
   $(divs).hide()
 
 //changes displayed slider value when slider is moved
@@ -14,6 +13,7 @@ $(document).ready(function () {
   $(".btn-start").on("click", function() {
     $(".summarize").show();
   })
+  var keyCounter = 0;
 
 //controls back and next buttons to hide and show divs
   $(".btn-next").on("click", function(e) {
@@ -21,9 +21,12 @@ $(document).ready(function () {
     let next = $(parent).next();
 
     let val = getInputVal(parent);
-    let key = getInputKey(parent);
-    localStorage.setItem(key, val);
-    updateNextSummary(next, key);
+    localStorage.setItem(keyCounter, val);
+    let updateDiv = updateNextSummary();
+    let summaryC = $(next).find(".container-summary");
+    $(summaryC).html(updateDiv);
+
+    keyCounter++;
 
     $(next).show();
     $(parent).hide();
@@ -34,6 +37,7 @@ $(document).ready(function () {
     let prev = $(parent).prev();
     $(parent).hide();
     $(prev).show();
+    keyCounter--;
   })
 
 //gets input value from parent div
@@ -44,22 +48,26 @@ $(document).ready(function () {
     }
   }
 
-//gets input key name
-  let getInputKey = function(ele) {
-    let key = $(ele).find(".key");
-    return key[0].textContent;
-  }
 
 //gets local storage value
-  let updateNextSummary = function(nextEle, pKey) {
-    let val = localStorage.getItem(pKey);
-    let summaryC = $(nextEle).find(".container-summary");
-    $(summaryC).append(pKey + ": " + val);
-    console.log(val);
+  let updateNextSummary = function() {
+    let returnDiv = [];
+    let summary = ["Summary", "Initial Feelings", "Main Thought", "Thought Distortions", "Modified Thoughts"];
+
+    for (var i = 0; i <= keyCounter; i++) {
+      returnDiv.push("<div><span>" + summary[i] + ": " + localStorage.getItem(i) + "</span></div></br>")
+    }
+    return returnDiv;
+
+    // let val = localStorage.getItem(pKey);
+    // let summaryC = $(nextEle).find(".container-summary");
+    // let currentC = $(currentEle).find(".container-summary");
+    // let current = $(currentC).html();
+    // $(summaryC).append(currentC + "</br>" +  val + "</br>");
   }
 
   //TODO -- fix update next summary -- summary boxes should containe all info from previous boxes and next should
-  //overwrite if it already exists, not add to it.
+  //overwrite if it already exists, not add to it//.
 
 });
 
