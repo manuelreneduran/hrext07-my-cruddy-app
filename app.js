@@ -13,18 +13,19 @@ $(document).ready(function () {
   $(".btn-start").on("click", function() {
     $(".summarize").show();
   })
+
+  //controls div shuffling system and updateNextSummary()
   var keyCounter = 0;
 
-//controls back and next buttons to hide and show divs
+//controls back and next buttons to hide and show divs as well as update next summary
   $(".btn-next").on("click", function(e) {
     let parent = e.currentTarget.parentElement;
     let next = $(parent).next();
 
     let val = getInputVal(parent);
     localStorage.setItem(keyCounter, val);
-    let updateDiv = updateNextSummary();
     let summaryC = $(next).find(".container-summary");
-    $(summaryC).html(updateDiv);
+    $(summaryC).html(updateNextSummary());
 
     keyCounter++;
 
@@ -58,16 +59,8 @@ $(document).ready(function () {
       returnDiv.push("<div><span>" + summary[i] + ": " + localStorage.getItem(i) + "</span></div></br>")
     }
     return returnDiv;
-
-    // let val = localStorage.getItem(pKey);
-    // let summaryC = $(nextEle).find(".container-summary");
-    // let currentC = $(currentEle).find(".container-summary");
-    // let current = $(currentC).html();
-    // $(summaryC).append(currentC + "</br>" +  val + "</br>");
   }
 
-  //TODO -- fix update next summary -- summary boxes should containe all info from previous boxes and next should
-  //overwrite if it already exists, not add to it//.
 
 });
 
