@@ -1,31 +1,30 @@
-
 $(document).ready(function () {
   //hides all workflow divs
   let divs = document.getElementsByClassName("container-main");
   $(divs).hide()
 
-//changes displayed slider value when slider is moved
-  $(document).delegate('.slider-emotion', "change mousemove", function() {
+  //changes displayed slider value when slider is moved
+  $(document).delegate('.slider-emotion', "change mousemove", function () {
     $(this).next().html($(this).val() + "%");
   });
 
-  var containerEmotion = $("#clone").clone(); 
+  var containerEmotion = $("#clone").clone();
 
-  
+
   //adds second emotion box when an emotion is selected
 
 
-//initializes workflow
-  $(".btn-start").on("click", function() {
-      $(divs).hide();
-      $(".summarize").show();
+  //initializes workflow
+  $(".btn-start").on("click", function () {
+    $(divs).hide();
+    $(".summarize").show();
   })
 
   //controls div shuffling system and updateNextSummary()
   var keyCounter = 0;
 
-//controls back and next buttons to hide and show divs as well as update next summary
-  $(".btn-next").on("click", function(e) {
+  //controls back and next buttons to hide and show divs as well as update next summary
+  $(".btn-next").on("click", function (e) {
     let parent = e.currentTarget.parentElement;
     let next = $(parent).next();
 
@@ -40,7 +39,7 @@ $(document).ready(function () {
     $(parent).hide();
   })
 
-  $(".btn-back").on("click", function(e) {
+  $(".btn-back").on("click", function (e) {
     let parent = e.currentTarget.parentElement;
     let prev = $(parent).prev();
     $(parent).hide();
@@ -48,8 +47,8 @@ $(document).ready(function () {
     keyCounter--;
   })
 
-//gets input value from parent div
-  let getInputVal = function(ele) {
+  //gets input value from parent div
+  let getInputVal = function (ele) {
     let parentInput = $(ele).find(".input");
     if (parentInput.length !== 0) {
       return parentInput[0].value;
@@ -57,16 +56,24 @@ $(document).ready(function () {
   }
 
 
-//gets local storage value
-  let updateNextSummary = function() {
+  //gets local storage value
+  let updateNextSummary = function () {
     let returnDiv = [];
-    let summary = ["Summary", "Initial Feelings", "Main Thought", "Thought Distortions", "Modified Thoughts"];
-    let val = function(ele) {
+    let summary = ["Summary", "Initial Feelings", "Main Thought", "Thought Distortions", "Modified Thoughts", "Current Feelings"];
+    let val = function (ele) {
       return $(ele).val();
     }
     for (var i = 0; i <= keyCounter; i++) {
       if (summary[i] === "Initial Feelings") {
         returnDiv.push("<span><u>Initial Feelings:</u></span><div><span>" + val(".emotion-first") + ": " + val(".slider-first") + "%</span></div></br>")
+      } else if (summary[i] === "Thought Distortions") {
+        let thoughts = "";
+        $('input:checkbox:checked').each(function () {
+          thoughts += $(this).next("label").text() + "</br>";
+        }).get();
+        returnDiv.push("<span><u>Thought Distortions</u></span><div><span>" + thoughts + "</br>");
+      } else if (summary[i] === "Modified Thoughts") {
+        $(".container-previous-emotions").append("<div><span>" + val(".emotion-first") + ": " + val(".slider-first") + "%</span></div></br><span>How do you feel now?</span></br><input type='range' class='input slider-emotion slider-first' name='slider-emotion' min='0' max='100' step='10' value='0'><span>0%</span>")
       } else {
         returnDiv.push("<div><span><u>" + summary[i] + ":</u></br>" + localStorage.getItem(i) + "</span></div></br>")
       }
@@ -74,6 +81,9 @@ $(document).ready(function () {
     }
     return returnDiv;
   }
+
+  //gets checkbox values
+
 
 
 });
