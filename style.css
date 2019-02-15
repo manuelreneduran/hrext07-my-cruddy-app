@@ -1,3 +1,27 @@
+body {
+    background-color: #25A31D;
+    color: #FFFDB7
+}
+
+.container-prime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    border: solid red;
+}
+
+.container-top {
+    border: solid blue;
+    margin-top: 50px;
+    
+    
+}
+
+#welcome {
+    border: solid;
+    flex-basis: 1 1 auto;
+}
+
 .container-main {
     border: solid;
 }
@@ -9,3 +33,41 @@
 .list-distortions li {
     border: solid blue;
 }
+
+
+.btn-start {
+    background:#25A31D;
+    color: #FFFDB7;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  .btn-start:hover{
+    background: #25A31D;
+    color: #FFFDB7;
+  }
+  .btn-start:before,.btn-start:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: rgb(249, 250, 249);
+    transition:400ms ease all;
+  }
+  .btn-start:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn-start:hover:before,.btn-start:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
