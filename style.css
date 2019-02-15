@@ -30,8 +30,9 @@ body {
     align-items: center;
 }
 
-.container-text {
+.container-text, .span-thought {
     display: flex;
+    flex-direction: row
     justify-content: center;
 }
 
