@@ -27,7 +27,8 @@ $(document).ready(function () {
 
   //controls back and next buttons to hide and show divs as well as update next summary
   $(".btn-next").on("click", function (e) {
-    let parent = e.currentTarget.parentElement;
+    let parent = e.currentTarget.parentElement.parentElement;
+    console.log(e);
     let next = $(parent).next();
 
     let val = getInputVal(parent);
@@ -42,10 +43,10 @@ $(document).ready(function () {
   })
 
   $(".btn-back").on("click", function (e) {
-    let parent = e.currentTarget.parentElement;
+    let parent = e.currentTarget.parentElement.parentElement;
     let prev = $(parent).prev();
-    $(parent).hide();
-    $(prev).show();
+    $(parent).hide('slow');
+    $(prev).show('slow');
     keyCounter--;
   })
 
