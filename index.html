@@ -31,11 +31,11 @@
     <div class="container-main summarize">
       <h3 class="key">Summarize a situation that bothered you</h3>
       <div class="container-text">
-        <input type="text" class="input input-text-summarize">
+        <input type="text" class="input input-text-summarize input-text">
       </div>
       <div class="container-buttons">
-          <button class="btn-back">Back</button>
-          <button class="btn-next">Next</button>
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
       </div>
     </div>
 
@@ -46,16 +46,16 @@
       <div class="container-summary">
         <span></span>
       </div>
+      <h3>How did you feel? (100% being the most you've ever felt that emotion)</h3>
       <div class="container-feelings">
-        <h3>How did you feel? (100% being the most you've ever felt that emotion)</h3 >
         <input type="text" class="emotion-first">
         <input type="range" class="input slider-emotion slider-first" name="slider-emotion" min="0" max="100" step="10"
           value="0">
         <span>0%</span>
       </div>
       <div class="container-buttons">
-          <button class="btn-back">Back</button>
-          <button class="btn-next">Next</button>
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
       </div>
 
     </div>
@@ -68,11 +68,11 @@
       </div>
       <h3>What thought or concern was going through your mind?</h3>
       <div class="container-input">
-        <input type="text" class="input input-text">
+        <input type="text" class="input input-text input-text-mainthought">
       </div>
       <div class="container-buttons">
-          <button class="btn-back">Back</button>
-          <button class="btn-next">Next</button>
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
       </div>
     </div>
 
@@ -83,70 +83,87 @@
       <h3 class="key">Thought Distortions</h3>
       <div class="container-summary">
       </div>
+      <h3 id="header-distortion">Which distortions can you identify in your thoughts?</h3>
       <div class="container-distortions">
-        <h3>Which distortions can you identify in your thoughts?</h3>
 
-        <input type="checkbox" name="reasoning">
-        <label for="reasoning">EMOTIONAL REASONING: Believing something is true because it "feels" true.</label>
-        </br>
+        <div class="container-checkbox"> <input type="checkbox" name="reasoning">
+          <label for="reasoning">EMOTIONAL REASONING: Believing something is true because it "feels" true.</label>
+          </br>
+        </div>
 
-        <input type="checkbox" name="fortune">
-        <label for="fortune">FORTUNE TELLING: Making negative predictions about the future, such as how people will
-          behave or how events will play out</label>
-        </br>
+        <div class="container-checkbox"> <input type="checkbox" name="fortune">
+          <label for="fortune">FORTUNE TELLING: Making negative predictions about the future, such as how people will
+            behave or how events will play out</label>
+          </br>
+        </div>
 
 
-        <input type="checkbox" name="allornothing">
-        <label for="allornothing">ALL OR NOTHING THINKING: Seeing people or events in absolute terms without
-          recognizing middle ground.</label>
-        </br>
+        <div class="container-checkbox"> <input type="checkbox" name="allornothing">
+          <label for="allornothing">ALL OR NOTHING THINKING: Seeing people or events in absolute terms without
+            recognizing middle ground.</label>
+          </br></div>
 
-        <input type="checkbox" name="blaming">
-        <label for="blaming">BLAMING: Blaming yourself or others too much. Focusing on who it to blame for problems
-          rather than what you can do about them.</label>
-        </br>
+        <div class="container-checkbox"> <input type="checkbox" name="blaming">
+          <label for="blaming">BLAMING: Blaming yourself or others too much. Focusing on who it to blame for problems
+            rather than what you can do about them.</label>
+          </br></div>
 
-        <input type="checkbox" name="catastrophizing">
-        <label for="catastrophizing">CATASTROPHIZING: Blowing things out of proportion, telling yourself that you won't
-          be able to handle something.</label>
-        </br>
-        <input type="checkbox" name="downplaying">
-        <label for="downplaying">DOWNPLAYING POSITIVES: Minimizing or dismissing positive qualities, achievements or
-          behaviors by telling yourself that they are unimportant or don't count.</label>
-        </br>
-        <input type="checkbox" name="Intolerance">
-        <label for="Intolerance">INTOLERANCE OF UNCERTAINTY: Struggling to accept or tolerate things being uncertain or
-          unknown.</label>
-        </br>
-        <input type="checkbox" name="labeling">
-        <label for="labeling">LABELING: Describing yourself or others using global, negative labels.</label>
-        </br>
-        <input type="checkbox" name="mind">
-        <label for="mind">MIND READING: Jumping to conclusions about another person's thoughts, feelings or intentions
-          without checking them out.</label>
-        </br>
-        <input type="checkbox" name="negative">
-        <label for="negative">NEGATIVE FILTERING: Focusing only on the negatives and ignoring the positives in a
-          situation.</label>
-        </br>
-        <input type="checkbox" name="notAccepting">
-        <label for="notAccepting">NOT ACCEPTING: Dwelling on an unpleasant situation or wishing things were different
-          instead of accepting what has happened and finding ways to move forward.</label>
-        </br>
-        <input type="checkbox" name="personalizing">
-        <label for="personalizing">PERSONALIZING: Telling yourself that events relate to you when they may not.</label>
-        </br>
-        <input type="checkbox" name="should">
-        <label for="should">'SHOULD' AND 'MUST' THINKING: Focusing on how things or people "should" or "must" be.
-          Treating your own standards or preferences as rules that everyone must live by.</label>
-        </br>
-        <input type="checkbox" name="not">
-        <label for="not">NOT A DISTORTION: None of the thought distortions apply but I could think about this situation
-          in a more helpful way.</label>
+        <div class="container-checkbox"> <input type="checkbox" name="catastrophizing">
+          <label for="catastrophizing">CATASTROPHIZING: Blowing things out of proportion, telling yourself that you
+            won't
+            be able to handle something.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="downplaying">
+          <label for="downplaying">DOWNPLAYING POSITIVES: Minimizing or dismissing positive qualities, achievements or
+            behaviors by telling yourself that they are unimportant or don't count.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="Intolerance">
+          <label for="Intolerance">INTOLERANCE OF UNCERTAINTY: Struggling to accept or tolerate things being uncertain
+            or
+            unknown.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="labeling">
+          <label for="labeling">LABELING: Describing yourself or others using global, negative labels.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="mind">
+          <label for="mind">MIND READING: Jumping to conclusions about another person's thoughts, feelings or
+            intentions
+            without checking them out.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="negative">
+          <label for="negative">NEGATIVE FILTERING: Focusing only on the negatives and ignoring the positives in a
+            situation.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="notAccepting">
+          <label for="notAccepting">NOT ACCEPTING: Dwelling on an unpleasant situation or wishing things were different
+            instead of accepting what has happened and finding ways to move forward.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="personalizing">
+          <label for="personalizing">PERSONALIZING: Telling yourself that events relate to you when they may not.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="should">
+          <label for="should">'SHOULD' AND 'MUST' THINKING: Focusing on how things or people "should" or "must" be.
+            Treating your own standards or preferences as rules that everyone must live by.</label>
+          </br></div>
+
+        <div class="container-checkbox"> <input type="checkbox" name="not">
+          <label for="not">NOT A DISTORTION: None of the thought distortions apply but I could think about this
+            situation
+            in a more helpful way.</label>
+        </div>
       </div>
+
       <div class="container-buttons">
-          <button class="btn-back">Back</button>
-          <button class="btn-next">Next</button>
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
       </div>
     </div>
 
@@ -162,8 +179,8 @@
         <input type="text" class="input input-text">
       </div>
       <div class="container-buttons">
-          <button class="btn-back">Back</button>
-          <button class="btn-next">Next</button>
+        <button class="btn-back">Back</button>
+        <button class="btn-next">Next</button>
       </div>
 
 
@@ -175,12 +192,12 @@
       <div class="container-summary">
       </div>
       <div class="container-previous-emotions">
-        
+
 
       </div>
       <div class="container-buttons">
-          <button class="btn-back">Back</button>
-          <button class="btn-finish">Finish</button>
+        <button class="btn-back">Back</button>
+        <button class="btn-finish">Finish</button>
       </div>
     </div>
 
