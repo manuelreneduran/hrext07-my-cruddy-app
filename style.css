@@ -1,6 +1,7 @@
 body {
     background-color: #25A31D;
-    color: #FFFDB7
+    color: #FFFDB7;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .container-prime {
@@ -8,13 +9,11 @@ body {
     flex-direction: column;
     align-items: center;      
     border: solid red;
+    padding-top: 75px;
 }
 
 .container-top {
     border: solid blue;
-    margin-top: 50px;
-    
-    
 }
 
 #welcome {
@@ -58,7 +57,7 @@ body {
     right:0;
     height:2px;
     width:0;
-    background: rgb(249, 250, 249);
+    background:  #FFFDB7;
     transition:400ms ease all;
   }
   .btn-start:after{

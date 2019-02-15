@@ -18,8 +18,9 @@ $(document).ready(function () {
 
   //initializes workflow
   $(".btn-start").on("click", function () {
-    $(divs).hide();
-    $(".summarize").show();
+    $(divs).hide('slow');
+    $(".container-top").hide('slow');
+    $(".summarize").show('slow');
     keyCounter = 0;
   })
 
@@ -36,8 +37,8 @@ $(document).ready(function () {
 
     keyCounter++;
 
-    $(next).show();
-    $(parent).hide();
+    $(next).show('slow');
+    $(parent).hide('slow');
   })
 
   $(".btn-back").on("click", function (e) {
